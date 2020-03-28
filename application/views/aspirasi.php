@@ -33,7 +33,7 @@
               <div class="row">
                 <div class="col-sm-12">
                   <div class="card-box table-responsive">
-                    <form action="<?= base_url(); ?>Aspirasi/del_aspirasi" method="POST">
+                    <form action="<?= base_url(); ?>Aspirasi/handleAllAction" method="POST">
                       <table id="datatable-checkbox" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                           <tr>
@@ -62,8 +62,8 @@
                           endforeach ?>
                         </tbody>
                       </table>
-                      <button type="submit" class="btn btn-round btn-warning" style="margin-left: 15px">Hapus</button>
-                      <button type="button" class="btn btn-round btn-success">Print</button>
+                      <button type="submit" name="request" value="delete" class="btn btn-round btn-warning" style="margin-left: 15px">Hapus</button>
+                      <button type="submit" name="request" value="print" class="btn btn-round btn-success">Print</button>
                     </form>
                   </div>
                 </div>
