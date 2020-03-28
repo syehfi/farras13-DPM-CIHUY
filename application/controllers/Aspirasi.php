@@ -54,19 +54,32 @@ class Aspirasi extends CI_Controller
 	{
 		$ct = count($dataAspirasi);
 		for ($i = 0; $i < $ct; $i++) {
+			//ini buat get id dan kawan kawan
 			$id = $dataAspirasi[$i];
 			$dataInfo = $this->a->getASPById($id)->result_array();
 			foreach ($dataInfo as $key) {
 				$makerName = $key['NAMA'];
 				$destination = $key['TUJUAN'];
 			}
+			//ini untuk manggil update transaksi berdasarkan ID
+			$this->updateAspirasiStatus($id);
 			$data['dataAspirasi'] = $dataInfo;
+			//buat pdf makernya
 			$this->load->library('pdf');
 			$this->pdf->setPaper('A4', 'potrait');
 			$this->pdf->filename = "Aspirasi " . $makerName . " Untuk " . $destination;
 			//Desain format laporannya belum aku buat, masih desain acak tapi work kok :)
 			$this->pdf->load_view('cetak_aspirasi', $data);
 		}
+	}
+	public function updateAspirasiStatus($id)
+	{
+		$where = "ASP_ID = " . $id;
+		$data = array(
+			'STATUS' => 1
+		);
+		$table = "aspirasi";
+		$this->a->update($table, $data, $where);
 	}
 }
 
