@@ -20,6 +20,21 @@ class admin_model extends CI_Model
     {
         return $this->db->update($tabel, $obj, $where);
     }
+    //joinTable dalam bentuk array untuk valuenya
+    public function getJoinWhere($tabel, $joinTabel, $joinOn, $where, $whereClause, $attr)
+    {
+
+        if ($where != null && $whereClause != null) {
+            $this->db->where($where, $whereClause);
+        }
+        if ($joinTabel != null) {
+            $this->db->join($joinTabel, $joinOn);
+        }
+        if ($attr != null) {
+            $this->db->select($attr);
+        }
+        return $this->db->get($tabel);
+    }
     public function getASP()
     {
         $this->db->join('kategori', 'kategori.KAT_ID = aspirasi.KAT_ID', 'left');
