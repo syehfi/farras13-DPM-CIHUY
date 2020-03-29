@@ -60,16 +60,16 @@ class Aspirasi extends CI_Controller
 			foreach ($dataInfo as $key) {
 				$makerName = $key['NAMA'];
 				$destination = $key['TUJUAN'];
+				$data['dataAspirasi'] = $dataInfo;
+				//buat pdf makernya
+				$this->load->library('pdf');
+				$this->pdf->setPaper('A4', 'potrait');
+				$this->pdf->filename = "Aspirasi " . $makerName . " Untuk " . $destination;
+				//Desain format laporannya belum aku buat, masih desain acak tapi work kok :)
+				$this->pdf->load_view('cetak_aspirasi', $data);
 			}
 			//ini untuk manggil update transaksi berdasarkan ID
 			$this->updateAspirasiStatus($id);
-			$data['dataAspirasi'] = $dataInfo;
-			//buat pdf makernya
-			$this->load->library('pdf');
-			$this->pdf->setPaper('A4', 'potrait');
-			$this->pdf->filename = "Aspirasi " . $makerName . " Untuk " . $destination;
-			//Desain format laporannya belum aku buat, masih desain acak tapi work kok :)
-			$this->pdf->load_view('cetak_aspirasi', $data);
 		}
 	}
 	public function updateAspirasiStatus($id)
