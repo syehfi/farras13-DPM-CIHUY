@@ -36,12 +36,13 @@
                     <p class="text-muted font-13 m-b-30">
                       Data Saran
                     </p>
-                    <form action="<?= base_url(); ?>Saran/del_saran" method="post">
+                    <form action="<?= base_url(); ?>Saran/handleAllAction" method="post">
                       <table id="datatable-checkbox" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                           <tr>
                             <th>Check</th>
                             <th>No</th>
+                            <th>NAMA</th>
                             <th>NIM</th>
                             <th>Saran</th>
                             <th>Tanggal</th>
@@ -53,6 +54,7 @@
                             <tr>
                               <td><input type="checkbox" id="check-all" name="pilih[]" value="<?= $s->SARAN_ID; ?>"> </td>
                               <td><?= $a; ?></td>
+                              <td> <?= $s->NAMA; ?> </td>
                               <td> <?= $s->NIM; ?> </td>
                               <td><?= $s->SARAN; ?></td>
                               <td><?= $s->DATE; ?></td>
@@ -61,8 +63,8 @@
                           endforeach ?>
                         </tbody>
                       </table>
-                      <button type="submit" class="btn btn-round btn-warning" style="margin-left: 15px">Hapus</button>
-                      <button type="button" class="btn btn-round btn-success">Print</button>
+                      <button type="submit" name="request" value="delete" class="btn btn-round btn-warning" style="margin-left: 15px">Hapus</button>
+                      <button type="submit" name="request" value="print" class="btn btn-round btn-success">Print</button>
                     </form>
                   </div>
                 </div>
