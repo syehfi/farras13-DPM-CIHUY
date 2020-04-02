@@ -14,10 +14,10 @@ class Aspirasi extends CI_Controller
 	public function index()
 	{
 		$data['main_view'] = 'aspirasi';
-		$data['asp'] = $this->a->getASP()->result();
+		$data['asp'] = $this->a->getASP('0')->result();
 		$this->load->view('dashboard', $data);
 	}
-	
+
 	public function del_aspirasi()
 	{
 		$dt = $this->input->post('pilih');

@@ -13,7 +13,7 @@ class Saran extends CI_Controller
 	public function index()
 	{
 		$data['main_view'] = 'saran';
-		$data['srn'] = $this->a->get('saran')->result();
+		$data['srn'] = $this->a->getW('saran', 'STATUS', '0')->result();
 		$this->load->view('dashboard', $data);
 	}
 
