@@ -36,6 +36,7 @@
                     <p class="text-muted font-13 m-b-30">
                       Data Histori Aspirasi
                     </p>
+<<<<<<< HEAD
                     <form action="<?= base_url(); ?>Histori/del_haspi" method="post"></form>
                     <table id="datatable-checkbox" class="table table-striped table-bordered" style="width:100%">
                       <thead>
@@ -68,6 +69,49 @@
                     </table>
                     <button type="submit" class="btn btn-round btn-warning" style="margin-left: 15px">Hapus</button>
                     <button type="button" class="btn btn-round btn-success">Print</button>
+=======
+                    <form action="<?= base_url(); ?>Histori/handleAllAction" method="post">
+                      <table id="datatable-checkbox" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                          <tr>
+                            <th>Check</th>
+                            <th>No</th>
+                            <th>NIM</th>
+                            <th>Kategori</th>
+                            <th>OKI</th>
+                            <th>Konten</th>
+                            <th>Tanggal</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                          $n = 1;
+                          foreach ($aspirasi as $key) { ?>
+                            <tr>
+                              <td><input type="checkbox" name="pilih[]" value="<?= $key->ASP_ID; ?>"> </td>
+                              <td><?= $n ?></td>
+                              <td><?= $key->NIM ?></td>
+                              <td><?= $key->KAT_NAMA ?></td>
+                              <td><?= $key->OKI_NAMA ?></td>
+                              <td><?= $key->KONTEN ?></td>
+                              <td><?= $key->DATE ?></td>
+                              <td>
+                                <?php if ($key->STATUS == 0) {
+                                  echo "Belum di print";
+                                } else if ($key->STATUS == 1) {
+                                  echo "Sudah di print";
+                                }
+                                ?>
+                              </td>
+                            </tr>
+                          <?php } ?>
+                        </tbody>
+                      </table>
+                      <button type="submit" name="request" value="delete" class="btn btn-round btn-warning" style="margin-left: 15px">Hapus</button>
+                      <button type="submit" name="request" value="print" class="btn btn-round btn-success">Print</button>
+                    </form>
+>>>>>>> 69a7d218283644e4a9032bede6f2998697520f61
                   </div>
                 </div>
               </div>
