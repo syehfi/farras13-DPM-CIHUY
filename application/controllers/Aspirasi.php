@@ -14,10 +14,12 @@ class Aspirasi extends CI_Controller
 	public function index()
 	{
 		$data['main_view'] = 'aspirasi';
-		$data['asp'] = $this->a->getASP()->result();
+		$data['asp'] = $this->a->getASP('0')->result();
 		$this->load->view('dashboard', $data);
 	}
 
+<<<<<<< HEAD
+=======
 	public function handleAllAction()
 	{
 		if ($_POST['request'] == 'delete') {
@@ -26,6 +28,7 @@ class Aspirasi extends CI_Controller
 			$this->print_aspirasi();
 		}
 	}
+>>>>>>> 69a7d218283644e4a9032bede6f2998697520f61
 	public function del_aspirasi()
 	{
 

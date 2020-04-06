@@ -47,6 +47,7 @@
                               </tr>
                             </thead>  
                             <tbody>
+                              <?php $n=1; foreach ($log as $k) :?>
                               <tr>
                                 <td><input type="checkbox" id="check-all" > </td>
                                 <td>1</td>
@@ -54,13 +55,7 @@
                                 <td>Systems Administrator</td>
                                 <td>London</td>
                               </tr>
-                              <tr>
-                                <td><input type="checkbox" id="check-all" > </td>
-                                <td>1</td>
-                                <td>Jonas Alexander</td>
-                                <td>Developer</td>
-                                <td>San Francisco</td>
-                              </tr>
+                             <?php $n++; endforeach?>
                             </tbody>
                           </table>
                           <button type="button" class="btn btn-round btn-warning" style="margin-left: 15px">Hapus</button>
