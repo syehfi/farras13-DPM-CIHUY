@@ -21,7 +21,7 @@ class Histori extends CI_Controller
 	public function saran()
 	{
 		$data['main_view'] = 'histori_saran';
-		$data['hsr'] = $this->a->getW('saran', 'STATUS', '1')->result();
+		$data['hsr'] = $this->a->getJoinWhere('saran', 'STATUS', '1')->result();
 		$this->load->view('dashboard', $data);
 	}
 	public function log()
@@ -30,11 +30,6 @@ class Histori extends CI_Controller
 		$data['log'] = $this->a->get('log')->result();
 		$this->load->view('dashboard', $data);
 	}
-<<<<<<< HEAD
-
-	public function del_haspi()
-	{
-=======
 	public function handleAllAction()
 	{
 		if ($_POST['request'] == 'delete') {
@@ -46,7 +41,6 @@ class Histori extends CI_Controller
 	public function del_aspirasi()
 	{
 
->>>>>>> 69a7d218283644e4a9032bede6f2998697520f61
 		$dt = $this->input->post('pilih');
 		$jl = count($dt);
 
@@ -56,33 +50,6 @@ class Histori extends CI_Controller
 
 		redirect('Histori/aspirasi');
 	}
-<<<<<<< HEAD
-
-	public function del_hasran()
-	{
-		$dt = $this->input->post('pilih');
-		$jl = count($dt);
-		if($dt == 'dt'){
-			
-		}
-		for ($i = 0; $i < $jl; $i++) {
-			$this->a->delete('SARAN_ID', $dt[$i], 'saran');
-		}
-
-		redirect('Histori/saran');
-	}
-
-	public function del_log()
-	{
-		$dt = $this->input->post('pilih');
-		$jl = count($dt);
-
-		for ($i = 0; $i < $jl; $i++) {
-			$this->a->delete('LOG_ID', $dt[$i], 'log');
-		}
-
-		redirect('Histori/log');
-=======
 	public function print_aspirasi()
 	{
 		$checkedData = $this->input->post_get('pilih');
@@ -125,7 +92,6 @@ class Histori extends CI_Controller
 		);
 		$table = "aspirasi";
 		$this->a->update($table, $data, $where);
->>>>>>> 69a7d218283644e4a9032bede6f2998697520f61
 	}
 }
 

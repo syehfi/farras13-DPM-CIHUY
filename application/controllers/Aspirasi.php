@@ -18,8 +18,6 @@ class Aspirasi extends CI_Controller
 		$this->load->view('dashboard', $data);
 	}
 
-<<<<<<< HEAD
-=======
 	public function handleAllAction()
 	{
 		if ($_POST['request'] == 'delete') {
@@ -28,7 +26,6 @@ class Aspirasi extends CI_Controller
 			$this->print_aspirasi();
 		}
 	}
->>>>>>> 69a7d218283644e4a9032bede6f2998697520f61
 	public function del_aspirasi()
 	{
 
