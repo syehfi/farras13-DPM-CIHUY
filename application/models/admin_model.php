@@ -20,18 +20,6 @@ class admin_model extends CI_Model
     {
         return $this->db->update($tabel, $obj, $where);
     }
-<<<<<<< HEAD
-    public function getW($tabel, $col, $val)
-    {
-        $this->db->where($col, $val);
-        return $this->db->get($tabel);
-    }
-    public function getASP($s)
-    {
-        $this->db->join('kategori', 'kategori.KAT_ID = aspirasi.KAT_ID', 'left');
-        $this->db->join('oki', 'oki.OKI_ID = aspirasi.OKI_ID', 'left');
-        $this->db->where('status', $s);
-=======
     //joinTable dalam bentuk array untuk valuenya
     public function getJoinWhere($tabel, $joinTabel, $joinOn, $where, $whereClause, $attr)
     {
@@ -61,7 +49,14 @@ class admin_model extends CI_Model
         $this->db->join('users', 'users.NIM = aspirasi.NIM');
         $this->db->where('ASP_ID', $id);
         $this->db->select($field);
->>>>>>> 69a7d218283644e4a9032bede6f2998697520f61
         return $this->db->get('aspirasi');
+    }
+    public function getPlot()
+    {
+        $field = 'plot_detail.ID_DETAIL, list_alat.ALAT_NAMA , plot.NAMA_PEMINJAM, plot.NAMA_ORGANISASI, plot.TANGGAL_PLOT, plot.TANGGAL_PEMINJAMAN, plot.TANGGAL_PENGEMBALIAN, plot.UNTUK_KEPERLUAN, plot.JAMINAN, plot_detail.JUMLAH, plot.STATUS';
+        $this->db->join('plot', 'plot.ID_PEMINJAMAN = plot_detail.ID_PEMINJAMAN', 'left');
+        $this->db->join('list_alat', 'list_alat.ALAT_ID = plot_detail.ALAT_ID', 'left');
+        $this->db->select($field);
+        return $this->db->get('plot_detail');
     }
 }

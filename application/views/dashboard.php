@@ -76,6 +76,11 @@
                     <li><a href="<?php echo base_url() ?>Histori/log">Log</a></li>
                   </ul>
                 </li>
+                <li><a><i class="fa fa-desktop"></i> Plot Barang <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="<?php echo base_url() ?>Plot">Data plot barang</a></li>
+                  </ul>
+                </li>
                 <li><a><i class="fa fa-desktop"></i> Publikasi Data <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="<?php echo base_url() ?>Galeri">Tambah Galeri</a></li>
