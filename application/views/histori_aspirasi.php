@@ -36,40 +36,6 @@
                     <p class="text-muted font-13 m-b-30">
                       Data Histori Aspirasi
                     </p>
-<<<<<<< HEAD
-                    <form action="<?= base_url(); ?>Histori/del_haspi" method="post"></form>
-                    <table id="datatable-checkbox" class="table table-striped table-bordered" style="width:100%">
-                      <thead>
-                        <tr>
-                          <th>Check</th>
-                          <th>No</th>
-                          <th>NIM</th>
-                          <th>Kategori</th>
-                          <th>OKI</th>
-                          <th>Konten</th>
-                          <th>Tanggal</th>
-                          <th>Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php $a = 1;
-                        foreach ($asp as $k) : ?>
-                          <tr>
-                            <td><input type="checkbox" id="check-all" name="pilih[]" value="<?= $k->ASP_ID; ?>"></td>
-                            <td><?= $a; ?></td>
-                            <td><?= $k->NIM; ?></td>
-                            <td><?= $k->KAT_NAMA; ?></td>
-                            <td><?= $k->OKI_NAMA; ?> </td>
-                            <td><?= $k->KONTEN; ?> </td>
-                            <td><?= $k->DATE; ?> </td>
-                          </tr>
-                        <?php $a++;
-                        endforeach ?>
-                      </tbody>
-                    </table>
-                    <button type="submit" class="btn btn-round btn-warning" style="margin-left: 15px">Hapus</button>
-                    <button type="button" class="btn btn-round btn-success">Print</button>
-=======
                     <form action="<?= base_url(); ?>Histori/handleAllAction" method="post">
                       <table id="datatable-checkbox" class="table table-striped table-bordered" style="width:100%">
                         <thead>
@@ -111,7 +77,6 @@
                       <button type="submit" name="request" value="delete" class="btn btn-round btn-warning" style="margin-left: 15px">Hapus</button>
                       <button type="submit" name="request" value="print" class="btn btn-round btn-success">Print</button>
                     </form>
->>>>>>> 69a7d218283644e4a9032bede6f2998697520f61
                   </div>
                 </div>
               </div>

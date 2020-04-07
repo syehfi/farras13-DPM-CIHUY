@@ -13,9 +13,6 @@ class Saran extends CI_Controller
 	public function index()
 	{
 		$data['main_view'] = 'saran';
-<<<<<<< HEAD
-		$data['srn'] = $this->a->getW('saran', 'STATUS', '0')->result();
-=======
 		$tabel = 'saran';
 		$joinTabel = "users";
 		$joinOn = "users.NIM = saran.NIM";
@@ -23,7 +20,6 @@ class Saran extends CI_Controller
 		$whereClause = null;
 		$attr = "saran.SARAN_ID, users.NAMA, saran.NIM, saran.SARAN, saran.DATE";
 		$data['srn'] = $this->a->getJoinWhere($tabel, $joinTabel, $joinOn, $where, $whereClause, $attr)->result();
->>>>>>> 69a7d218283644e4a9032bede6f2998697520f61
 		$this->load->view('dashboard', $data);
 	}
 
