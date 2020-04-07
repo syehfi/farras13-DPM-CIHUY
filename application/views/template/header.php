@@ -32,41 +32,11 @@
                                 <li><a href="">Agenda</a></li> 
                                 <li><a href="<?= base_url(); ?>aspirasi">Aspirasi</a></li> 
                                 <li><a href="">Kontak</a></li>
-                                <li><a href="" type="button" data-toggle="modal" data-target="#exampleModalCenter">Login</a></li>
+                                <li><a href="<?= base_url(); ?>login">Login</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" name="modal">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="modal-footer">
-        <small><a href="">Belum punya akun? Silahkan Daftar Sekarang</small></a>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <button type="button" class="btn btn-primary">Login</button>
-      </div>
-    </form>
-      </div>
-    </div>
-  </div>
 </div>
