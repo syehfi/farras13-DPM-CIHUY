@@ -4,8 +4,7 @@
 <section>
   <div class="page">
     <div class="welcome">
-      <h2>Halo, User!</h2>
-      <img src="<?= base_url(); ?>img/logo.png" alt="">
+      <img class="logo" src="<?= base_url(); ?>img/logo_dpm.png" alt="">
       <button class="sign_in">Sign In</button>
       <button class="btn">Sign Up</button>
     </div>
