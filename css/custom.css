@@ -1,0 +1,29 @@
+.box-centering {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.page-wrapper {
+	width: 50%;
+	margin: 30px;
+}
+
+.box-input {
+	width: 80%;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.form-content {
+	margin-top: 10px;
+}
+
+#aspirasi-input {
+	resize: none;
+	height: 300px;
+}
+
+.btn-input {
+	margin: 10px;
+}
