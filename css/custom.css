@@ -7,6 +7,7 @@
 .page-wrapper {
 	width: 50%;
 	margin: 30px;
+	color: #000;
 }
 
 .box-input {
@@ -26,4 +27,16 @@
 
 .btn-input {
 	margin: 10px;
+	width: 100px;
+}
+
+.btn-input-home {
+	margin: 10px;
+	margin-top: 30px;
+	color: yellow;
+	font-size: 20px;
+	background: #000;
+}
+.btn-input-home:hover {
+	color: wheat;
 }
