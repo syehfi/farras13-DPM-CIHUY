@@ -16,9 +16,9 @@ class Home extends CI_Controller
     public function index()
     {
         $data['galeri'] = $this->a->get("galeri")->result();
-        $this->load->view('template/header');
-        $this->load->view('home/index', $data);
-        $this->load->view('template/footer');
+        $this->load->view('user/template/header');
+        $this->load->view('user/home/index', $data);
+        $this->load->view('user/template/footer');
     }
 }
 

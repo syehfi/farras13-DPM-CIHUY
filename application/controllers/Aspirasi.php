@@ -17,9 +17,9 @@ class Aspirasi extends CI_Controller
     {
         $data['oki'] = $this->a->get('oki')->result();
         $data['kategori'] = $this->a->get('kategori')->result();
-        $this->load->view('template/header');
-        $this->load->view('aspirasi/index', $data);
-        $this->load->view('template/footer');
+        $this->load->view('user/template/header');
+        $this->load->view('user/aspirasi/index', $data);
+        $this->load->view('user/template/footer');
     }
     public function sendAspirasi()
     {
