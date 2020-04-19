@@ -7,13 +7,10 @@ class Login extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('login/index');
-        
+        $this->load->view('');
+        $this->load->view('user/login/index');
     }
 
 }
 
 /* End of file Login.php */
-
-
-?>
