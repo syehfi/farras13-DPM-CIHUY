@@ -9,6 +9,7 @@ class Aspirasi extends CI_Controller
 		parent::__construct();
 		//Do your magic here
 		$this->load->model('admin_model', 'a');
+		$this->load->library('xls', 'xls');
 	}
 
 	public function index()
@@ -47,30 +48,25 @@ class Aspirasi extends CI_Controller
 				$data[] = $checked;
 			}
 			$this->printExecutor($data);
-			redirect('admin/aspirasi');
 		}
 	}
 	public function printExecutor($dataAspirasi)
 	{
+		$__DATA = array();
 		$ct = count($dataAspirasi);
 		for ($i = 0; $i < $ct; $i++) {
 			//ini buat get id dan kawan kawan
 			$id = $dataAspirasi[$i];
-			$dataInfo = $this->a->getASPById($id)->result_array();
-			foreach ($dataInfo as $key) {
-				$makerName = $key['NAMA'];
-				$destination = $key['TUJUAN'];
-				$data['dataAspirasi'] = $dataInfo;
-				//buat pdf makernya
-				$this->load->library('pdf');
-				$this->pdf->setPaper('A4', 'potrait');
-				$this->pdf->filename = "Aspirasi " . $makerName . " Untuk " . $destination;
-				//Desain format laporannya belum aku buat, masih desain acak tapi work kok :)
-				$this->pdf->load_view('admin/cetak_aspirasi', $data);
-			}
+			$datas = $this->a->getASPById($id)->result_array();
+
+			//Masukin array biar uwu
+
+			$__DATA["data"][] = $datas;
+
 			//ini untuk manggil update transaksi berdasarkan ID
 			$this->updateAspirasiStatus($id);
 		}
+		$this->xls->export_xls_aspirasi($__DATA);
 	}
 	public function updateAspirasiStatus($id)
 	{
