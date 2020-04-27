@@ -68,10 +68,9 @@ class Saran extends CI_Controller
 
 			//push to array 
 			$__DATA["data"][] = $saranData;
-
-			//exec
-			$this->xls->export_xls_aspirasi($__DATA, 'saran');
 		}
+		//exec
+		$this->xls->export_xls_aspirasi($__DATA, 'saran');
 	}
 }
 

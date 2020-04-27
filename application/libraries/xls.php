@@ -68,9 +68,9 @@ class xls
                         $spreadsheet->setActiveSheetIndex(0)
                             ->setCellValue('A' . $kolom, $nomor)
                             ->setCellValue('B' . $kolom, $ke["NAMA"])
-                            ->setCellValue('C' . $kolom, $ke["KAT_NAMA"])
-                            ->setCellValue('D' . $kolom, $ke["OKI_NAMA"])
-                            ->setCellValue('E' . $kolom, $ke["TUJUAN"]);
+                            ->setCellValue('C' . $kolom, $ke["NIM"])
+                            ->setCellValue('D' . $kolom, $ke["SARAN"])
+                            ->setCellValue('E' . $kolom, $ke["DATE"]);
                         $kolom++;
                         $nomor++;
                     }
