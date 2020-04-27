@@ -48,6 +48,7 @@ class Aspirasi extends CI_Controller
 				$data[] = $checked;
 			}
 			$this->printExecutor($data);
+			redirect('admin/aspirasi');
 		}
 	}
 	public function printExecutor($dataAspirasi)
@@ -66,7 +67,7 @@ class Aspirasi extends CI_Controller
 			//ini untuk manggil update transaksi berdasarkan ID
 			$this->updateAspirasiStatus($id);
 		}
-		$this->xls->export_xls_aspirasi($__DATA);
+		$this->xls->export_xls_aspirasi($__DATA, 'aspirasi');
 	}
 	public function updateAspirasiStatus($id)
 	{
