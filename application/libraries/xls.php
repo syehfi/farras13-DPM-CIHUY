@@ -21,6 +21,13 @@ class xls
             ->setCategory('Test result file');
 
         if ($type == 'aspirasi') {
+            $spreadsheet->getActiveSheet()->getColumnDimension("B")->setWidth("20");
+            $spreadsheet->getActiveSheet()->getColumnDimension("C")->setWidth("18");
+            $spreadsheet->getActiveSheet()->getColumnDimension("D")->setAutoSize('30');
+            $spreadsheet->getActiveSheet()->getColumnDimension("E")->setWidth('20');
+            $spreadsheet->getActiveSheet()->getColumnDimension("F")->setAutoSize('30');
+            $spreadsheet->getActiveSheet()->getColumnDimension("G")->setAutoSize('30');
+            $spreadsheet->getActiveSheet()->getRowDimension("1")->setRowHeight('20');
             //setting nama kolom
             $spreadsheet->setActiveSheetIndex(0)
                 ->setCellValue('A1', 'Nomor')
@@ -53,6 +60,12 @@ class xls
             }
             $filename = "Aspirasi " . date("Y-m-d H:i:s");
         } else if ($type == 'saran') {
+            $spreadsheet->getActiveSheet()->getColumnDimension("B")->setWidth("20");
+            $spreadsheet->getActiveSheet()->getColumnDimension("C")->setWidth("18");
+            $spreadsheet->getActiveSheet()->getColumnDimension("D")->setAutoSize('30');
+            $spreadsheet->getActiveSheet()->getColumnDimension("E")->setWidth('20');
+            $spreadsheet->getActiveSheet()->getRowDimension("1")->setRowHeight('20');
+
             //setting nama kolom
             $spreadsheet->setActiveSheetIndex(0)
                 ->setCellValue('A1', 'Nomor')
