@@ -3,6 +3,7 @@
 </div>
 </footer>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>js/jquery-scrolltofixed.js"></script>
@@ -11,6 +12,7 @@
 <script type="text/javascript" src="<?= base_url() ?>js/jquery.isotope.js"></script>
 <script src="<?= base_url() ?>js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
 <script type="text/javascript" src="<?= base_url() ?>js/wow.js"></script>
+<!-- custom js here -->
 <script type="text/javascript" src="<?= base_url() ?>js/custom.js"></script>
 
 </body>

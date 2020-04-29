@@ -22,7 +22,7 @@
         <div class="col-md-12 col-sm-12 ">
           <div class="x_panel">
             <div class="x_title">
-              <h2>Kotak Saran</small></h2>
+              <h2>Aspirasi</small></h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -33,33 +33,32 @@
               <div class="row">
                 <div class="col-sm-12">
                   <div class="card-box table-responsive">
-                    <p class="text-muted font-13 m-b-30">
-                      Data Saran
-                    </p>
-                    <form action="<?= base_url(); ?>Saran/handleAllAction" method="post">
+                    <form action="<?= base_url(); ?>admin/aspirasi/handleAllAction" method="POST">
                       <table id="datatable-checkbox" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                           <tr>
                             <th>Check</th>
                             <th>No</th>
-                            <th>NAMA</th>
                             <th>NIM</th>
-                            <th>Saran</th>
+                            <th>Kategori</th>
+                            <th>OKI</th>
+                            <th>Konten</th>
                             <th>Tanggal</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <?php $a = 1;
-                          foreach ($srn as $s) : ?>
+                          <?php $n = 1;
+                          foreach ($asp as $a) : ?>
                             <tr>
-                              <td><input type="checkbox" id="check-all" name="pilih[]" value="<?= $s->SARAN_ID; ?>"> </td>
-                              <td><?= $a; ?></td>
-                              <td> <?= $s->NAMA; ?> </td>
-                              <td> <?= $s->NIM; ?> </td>
-                              <td><?= $s->SARAN; ?></td>
-                              <td><?= $s->DATE; ?></td>
+                              <td><input type="checkbox" name="pilih[]" value="<?= $a->ASP_ID; ?>"> </td>
+                              <td><?= $n; ?> </td>
+                              <td><?= $a->NIM; ?> </td>
+                              <td><?= $a->KAT_NAMA; ?> </td>
+                              <td><?= $a->OKI_NAMA; ?> </td>
+                              <td><?= $a->KONTEN; ?> </td>
+                              <td><?= $a->DATE; ?> </td>
                             </tr>
-                          <?php $a++;
+                          <?php $n++;
                           endforeach ?>
                         </tbody>
                       </table>

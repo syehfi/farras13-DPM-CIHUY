@@ -8,11 +8,12 @@ class Saran extends CI_Controller
 		parent::__construct();
 		//Do your magic here
 		$this->load->model('admin_model', 'a');
+		$this->load->library('xls', 'xls');
 	}
 
 	public function index()
 	{
-		$data['main_view'] = 'saran';
+		$data['main_view'] = 'admin/saran';
 		$tabel = 'saran';
 		$joinTabel = "users";
 		$joinOn = "users.NIM = saran.NIM";
@@ -20,7 +21,7 @@ class Saran extends CI_Controller
 		$whereClause = null;
 		$attr = "saran.SARAN_ID, users.NAMA, saran.NIM, saran.SARAN, saran.DATE";
 		$data['srn'] = $this->a->getJoinWhere($tabel, $joinTabel, $joinOn, $where, $whereClause, $attr)->result();
-		$this->load->view('dashboard', $data);
+		$this->load->view('admin/dashboard', $data);
 	}
 
 	public function handleAllAction()
@@ -39,7 +40,7 @@ class Saran extends CI_Controller
 		for ($i = 0; $i < $jl; $i++) {
 			$this->a->delete('SARAN_ID', $dt[$i], 'saran');
 		}
-		redirect('saran');
+		redirect('admin/saran');
 	}
 	public function print_saran()
 	{
@@ -49,27 +50,27 @@ class Saran extends CI_Controller
 				$data[] = $key;
 			}
 			$this->printExecutor($data);
-			redirect('saran');
+			redirect('admin/saran');
 		}
 	}
 	public function printExecutor($data)
 	{
+		$__DATA = array();
 		foreach ($data as $key) {
+			//Get saran data by id
 			$tabel = 'saran';
 			$joinTabel = "users";
 			$joinOn = "users.NIM = saran.NIM";
 			$where = "saran.SARAN_ID";
 			$whereClause = $key;
 			$attr = "saran.SARAN_ID, users.NAMA, saran.NIM, saran.SARAN, saran.DATE";
-			$saranData = $this->a->getJoinWhere($tabel, $joinTabel, $joinOn, $where, $whereClause, $attr)->result();
-			foreach ($saranData as $key) {
-				$data['dataSaran'] = $key;
-				$this->load->library('pdf');
-				$this->pdf->setPaper('A4', 'potrait');
-				$this->pdf->filename = "Saran " . $key->NAMA;
-				$this->pdf->load_view('cetak_saran', $data);
-			}
+			$saranData = $this->a->getJoinWhere($tabel, $joinTabel, $joinOn, $where, $whereClause, $attr)->result_array();
+
+			//push to array 
+			$__DATA["data"][] = $saranData;
 		}
+		//exec
+		$this->xls->export_xls_aspirasi($__DATA, 'saran');
 	}
 }
 

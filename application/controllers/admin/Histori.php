@@ -14,21 +14,21 @@ class Histori extends CI_Controller
 	public function aspirasi()
 	{
 		$data['aspirasi'] = $this->a->getASP()->result();
-		$data['main_view'] = 'histori_aspirasi';
+		$data['main_view'] = 'admin/histori_aspirasi';
 		$data['asp'] = $this->a->getASP('1')->result();
-		$this->load->view('dashboard', $data);
+		$this->load->view('admin/dashboard', $data);
 	}
 	public function saran()
 	{
-		$data['main_view'] = 'histori_saran';
+		$data['main_view'] = 'admin/histori_saran';
 		$data['hsr'] = $this->a->getJoinWhere('saran', 'STATUS', '1')->result();
-		$this->load->view('dashboard', $data);
+		$this->load->view('admin/dashboard', $data);
 	}
 	public function log()
 	{
-		$data['main_view'] = 'log';
+		$data['main_view'] = 'admin/log';
 		$data['log'] = $this->a->get('log')->result();
-		$this->load->view('dashboard', $data);
+		$this->load->view('admin/dashboard', $data);
 	}
 	public function handleAllAction()
 	{
@@ -48,7 +48,7 @@ class Histori extends CI_Controller
 			$this->a->delete('ASP_ID', $dt[$i], 'aspirasi');
 		}
 
-		redirect('Histori/aspirasi');
+		redirect('admin/Histori/aspirasi');
 	}
 	public function print_aspirasi()
 	{
@@ -59,7 +59,7 @@ class Histori extends CI_Controller
 				$data[] = $checked;
 			}
 			$this->printExecutor($data);
-			redirect('Histori/aspirasi');
+			redirect('admin/Histori/aspirasi');
 		}
 	}
 	public function printExecutor($dataAspirasi)
@@ -78,7 +78,7 @@ class Histori extends CI_Controller
 				$this->pdf->setPaper('A4', 'potrait');
 				$this->pdf->filename = "Aspirasi " . $makerName . " Untuk " . $destination;
 				//Desain format laporannya belum aku buat, masih desain acak tapi work kok :)
-				$this->pdf->load_view('cetak_aspirasi', $data);
+				$this->pdf->load_view('admin/cetak_aspirasi', $data);
 			}
 			//ini untuk manggil update transaksi berdasarkan ID
 			$this->updateAspirasiStatus($id);

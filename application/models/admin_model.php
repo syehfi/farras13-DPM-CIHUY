@@ -59,4 +59,8 @@ class admin_model extends CI_Model
         $this->db->select($field);
         return $this->db->get('plot_detail');
     }
+    public function insertAspirasi($table, $data)
+    {
+        return $this->db->insert('aspirasi', $data);
+    }
 }

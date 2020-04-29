@@ -30,7 +30,7 @@
               <div class="clearfix"></div>
             </div>
             <div class="x_content">
-              <form class="" action="<?= base_url(); ?>Kategori/ins_kategori" method="post" novalidate>
+              <form class="" action="<?= base_url(); ?>admin/kategori/ins_kategori" method="post" novalidate>
                 <div class="field item form-group">
                   <label class="col-form-label col-md-3 col-sm-3  label-align">Nama Kategori<span class="required">*</span></label>
                   <div class="col-md-6 col-sm-6">
@@ -82,7 +82,7 @@
                     <p class="text-muted font-13 m-b-30">
                       Data Kategori
                     </p>
-                    <form action="<?= base_url(); ?>Kategori/del_kategori" method="post">
+                    <form action="<?= base_url(); ?>admin/kategori/del_kategori" method="post">
                       <table id="datatable-checkbox" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                           <tr>
@@ -107,7 +107,6 @@
                         </tbody>
                       </table>
                       <button type="submit" class="btn btn-round btn-warning" style="margin-left: 15px">Hapus</button>
-                      <button type="button" class="btn btn-round btn-success">Print</button>
                     </form>
                   </div>
                 </div>

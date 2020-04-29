@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Plot extends CI_Controller
+class admin extends CI_Controller
 {
 
 
@@ -13,14 +13,12 @@ class Plot extends CI_Controller
         $this->load->model('admin_model', 'a');
     }
 
-
     public function index()
     {
-        $data['main_view'] = 'Plot';
-        $data['brg'] = $this->a->getPlot()->result();
-        $data['item'] = $this->a->get("list_alat")->result();
-        $this->load->view('dashboard', $data);
+        $data['main_view'] = 'admin/aspirasi';
+        $data['asp'] = $this->a->getASP('0')->result();
+        $this->load->view('admin/dashboard', $data);
     }
 }
     
-    /* End of file Plot.php */
+    /* End of file index.php */

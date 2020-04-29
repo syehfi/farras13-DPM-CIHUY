@@ -15,7 +15,7 @@ class Peminjaman extends CI_Controller
 	{
 		$data['main_view'] = 'barang';
 		$data['brg'] = $this->a->get('list_alat')->result();
-		$this->load->view('dashboard', $data);
+		$this->load->view('admin/dashboard', $data);
 	}
 
 	public function listPeminjaman()
@@ -23,13 +23,13 @@ class Peminjaman extends CI_Controller
 		$data['main_view'] = 'peminjaman';
 		$data['a'] = $this->a->get('list_alat')->result();
 		$data['pj'] = $this->a->get('plot')->result();
-		$this->load->view('dashboard', $data);
+		$this->load->view('admin/dashboard', $data);
 	}
 
 	public function ins_peminjaman()
 	{
 		$ab = 	$this->input->post('barang');
-		$a = $this->a->getW('list_alat','ALAT_ID', $ab)->row();
+		$a = $this->a->getW('list_alat', 'ALAT_ID', $ab)->row();
 		$arr = array(
 			'ALAT_ID'				=> $ab,
 			'NAMA_PEMINJAMAN'		=>	$this->input->post('namapeminjam'),
@@ -42,8 +42,8 @@ class Peminjaman extends CI_Controller
 			'UNTUK_KEPERLUAN'		=>	$this->input->post('keperluan'),
 			'JAMINAN'				=>	$this->input->post('jaminan'),
 		);
-		$this->a->insert('plot',$arr);
-		redirect("Peminjaman/listPeminjaman");
+		$this->a->insert('plot', $arr);
+		redirect("admin/Peminjaman/listPeminjaman");
 	}
 
 	public function ins_barangP()
@@ -52,8 +52,8 @@ class Peminjaman extends CI_Controller
 			'ALAT_NAMA'		=>	$this->input->post('namabarang'),
 			'JUMLAH_ALAT'	=>	$this->input->post('jumlah'),
 		);
-		$this->a->insert('list_alat',$arr);
-		redirect("Peminjaman");
+		$this->a->insert('list_alat', $arr);
+		redirect("admin/Peminjaman");
 	}
 
 	public function del_peminjaman()
@@ -65,7 +65,7 @@ class Peminjaman extends CI_Controller
 			$this->a->delete('ID_PEMINJAMAN', $dt[$i], 'plot');
 		}
 
-		redirect('Peminjaman/listPeminjaman');
+		redirect('admin/Peminjaman/listPeminjaman');
 	}
 
 	public function del_barangP()
@@ -77,7 +77,7 @@ class Peminjaman extends CI_Controller
 			$this->a->delete('ALAT_ID', $dt[$i], 'list_alat');
 		}
 
-		redirect('Peminjaman');
+		redirect('admin/Peminjaman');
 	}
 
 	public function upd_peminjaman()

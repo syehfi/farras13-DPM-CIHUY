@@ -13,19 +13,20 @@ class Galeri extends CI_Controller
 
 	public function index()
 	{
-		$data['main_view'] = 'galeri';
+		$data['main_view'] = 'admin/galeri';
 		$data['gal'] = $this->a->get('galeri')->result();
-		$this->load->view('dashboard', $data);
+		$this->load->view('admin/dashboard', $data);
 	}
 	public function ins_galeri()
 	{
 		//$id = $this->session->userdata('auth');
 		$acara = $this->input->post('namaacara');
+		$konten = $this->input->post('kontenacara');
 		$komisi = $this->input->post('komisi');
 
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png';
-		
+
 		$this->load->library('upload', $config);
 
 		if (!$this->upload->do_upload('gambar')) {
@@ -34,21 +35,23 @@ class Galeri extends CI_Controller
 		} else {
 			$upload_data = $this->upload->data();
 			$ins = array(
-				'KONTEN' => $acara,
+				'NAMA_ACARA' => $acara,
+				'KONTEN' => $konten,
 				'KOMISI' => $komisi,
 				'GAL_NAMA' => $upload_data['file_name'],
 			);
 			$this->a->insert('galeri', $ins);
-			redirect('galeri', 'refresh');
+			redirect('admin/galeri', 'refresh');
 		}
 	}
 	public function upd_galeri()
 	{
 		# code...
 	}
-	public function del_galeri()
+	public function del_galeri($id)
 	{
-		# code...
+		$this->a->deleteGallery($id);
+		redirect('admin/galeri', 'refresh');
 	}
 }
 

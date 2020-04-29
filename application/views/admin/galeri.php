@@ -51,13 +51,13 @@
                 <div class="field item form-group">
                   <label class="col-form-label col-md-3 col-sm-3  label-align">Konten<span class="required">*</span></label>
                   <div class="col-md-6 col-sm-6">
-                    <textarea class="resizable_textarea form-control" placeholder=""></textarea>
+                    <textarea name="kontenacara" class="resizable_textarea form-control" placeholder="" required></textarea>
                   </div>
                 </div>
                 <div class="field item form-group">
                   <label class="col-form-label col-md-3 col-sm-3  label-align">Upload Gambar<span class="required">*</span></label>
                   <div class="col-md-6 col-sm-6">
-                    <input type="file" name="gambar" data-role="magic-overlay" data-target="" data-edit="insertImage" /> </div>
+                    <input type="file" name="gambar" data-role="magic-overlay" data-target="" data-edit="insertImage" required /> </div>
                 </div>
 
                 <div class="ln_solid">
@@ -114,8 +114,13 @@
                             <td>Komisi <?= $g->KOMISI; ?></td>
                             <td><?= $g->GAL_NAMA; ?></td>
                             <td><?= $g->KONTEN; ?></td>
-                            <td> <button type="button" class="btn btn-round btn-warning">Hapus</button>
-                              <button type="button" class="btn btn-round btn-primary">Edit</button></td>
+                            <td>
+                              <a href="<?= base_url() ?>Galeri/del_galeri/<?= $g->GALERI_ID ?>">
+                                <button type="button" class="btn btn-sm btn-round btn-warning">Hapus</button>
+                              </a>
+
+                              <button type="button" class="btn btn-sm btn-round btn-primary">Edit</button>
+                            </td>
 
                           </tr>
                         <?php $n++;
